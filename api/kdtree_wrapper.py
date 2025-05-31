@@ -27,13 +27,8 @@ class Tarv(Structure):
                 ("k", c_int)
                ]
 
-try:
-    lib = ctypes.CDLL("./libkdtree.dll")
-except OSError as e:
-    print(f"Erro ao carregar a biblioteca ./libkdtree.dll: {e}")
-    print("Certifique-se de que a biblioteca (libkdtree.dll) foi compilada e está no local correto e com a arquitetura correta (32bit/64bit).")
-    print("Exemplo de compilação (MinGW): gcc -shared -o libkdtree.dll kdtree.c -lm")
-    exit(1)
+lib = ctypes.CDLL("./libkdtree.dll")
+
 
 lib.kdtree_construir_global.argtypes = []
 lib.kdtree_construir_global.restype = None
