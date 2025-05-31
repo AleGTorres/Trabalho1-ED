@@ -1,4 +1,4 @@
-# Projeto KD-Tree para Reconhecimento Facial API
+# Trabalho com KD-Tree para Reconhecimento Facial API
 
 ## Visão Geral
 
