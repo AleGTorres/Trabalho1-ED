@@ -96,3 +96,25 @@ Exemplo de corpo JSON `data_a.json` que utilizei:
 - Busca o vizinho mais próximo de um embedding fornecido como parâmetros de query.
 
 - A URL precisa de 128 parâmetros query_embedding.
+
+## Fluxo de Trabalho da Aplicação
+
+### Selecionar Imagens 
+
+Criei um arquivo chamado `selecionar_imagens.py` para selecionar, aleatoriamente, mil imagens do dataset disponibilizado no enunciado do trabalho. Essas mil imagens são salvas em uma nova pasta localmente.
+
+### Gerar os Embeddings Faciais
+
+A pasta com as mil imagens é transferida para o meu Google Drive, para poder ser utilizada no meu Notebook Google Colab.
+
+*Link: https://colab.research.google.com/drive/1tLXzHFYRWtyETjCbPzs8SXuJ9H-uLWxb?usp=sharing*
+
+Executando todas as células do Notebook, os embeddings das mil imagens e de mais três faces (minha e de mais duas familiares) serão gerados e salvos em um único arquivo `embeddings_faciais.json`, que será baixado, ao executar a última célula, no dispositivo local.
+
+### Execução Final
+
+Por fim, criei um script Python `cliente_final.py` que une todas as partes do projeto. Ao iniciar o servidor da API FastAPI e ele começar a rodar, esse script, após ser executado, realiza chamadas aos endpoints `/construir-arvore`, `/inserir` e `/buscar`, para inicializar a KDTree, ler o arquivo `embeddings_faciais.json`, popular a KDTree com todos os registros e enviar esses registros dos embeddings para o `/buscar`, que verifica se a API consegue identificar o vizinho mais próximo, respectivamente. 
+
+## Vídeo com a Explicação do meu Trabalho
+
+*Link: https://drive.google.com/file/d/18Cc6KaavBuxmXeS9ysaMRK8TGu5f1pRq/view?usp=sharing*
