@@ -42,9 +42,7 @@ def inserir_endpoint(entrada: EntradaEmbedding):
         for i in range(K_DIMENSIONS):
             ponto_c.embedding[i] = entrada.embedding[i]
         
-        id_bytes = entrada.id_pessoa.encode('utf-8')
-        max_len = len(ponto_c.id_pessoa) - 1 
-        ponto_c.id_pessoa = id_bytes[:max_len]
+        ponto_c.id_pessoa = entrada.id_pessoa.encode('utf-8')
 
         lib.inserir_ponto_global(ponto_c)
         return {"mensagem": f"Embedding para '{entrada.id_pessoa}' inserido com sucesso."}
